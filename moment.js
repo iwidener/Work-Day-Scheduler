@@ -1,4 +1,7 @@
-//Code for current day//
+//Current date//
 
 var m = moment();
-console.log(m.format("dddd, MMM Mo YYYY"));
+var curDay = m.format("dddd, MMMM Do YYYY");
+console.log(m.format("dddd, MMMM Do YYYY"));
+
+

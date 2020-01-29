@@ -73,8 +73,8 @@ body {
 
   .fas {
       font-size: 30px;
-      padding-top: 25px;
-      padding-left: 15px;
+      padding-top: 10px;
+      padding-left: 10px;
   }
   
   .saveBtn i:hover {

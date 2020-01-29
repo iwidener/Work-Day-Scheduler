@@ -13,9 +13,6 @@
 
     <title>Work Day Scheduler</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="moment.js"></script>
 
 </head>
 
@@ -29,43 +26,15 @@
     <div class="container">
 
         <!-- Timeblocks go here -->
-        <div class="time-block">
-            <div class="row">
-                <div class="col-2 hour"></div>
-                <textarea class="col-8 description"></textarea>
-                
-
-                <div class="col-2 saveBtn"><i class="fas">&#xf0c5;</i></div>
-            </div>
-        </div>
+        <div class="time-block"></div>
     </div>
 
 
-    <script>
 
-        $(document).ready(function () {
-
-            console.log("ready");
-
-            var blockDiv = $(".time-block");
-
-
-            for (var i = 0; i < 3; i++) {
-
-                var newRow = $(".row");
-
-                $(".row").clone().appendTo(".time-block");
-
-            }
-        });
-
-        //Code for current day//
-
-        var m = moment();
-        console.log(m.format("dddd, MMM Mo YYYY"));
-
-
-    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="moment.js"></script>
+    <script src="script.js"></script>
 
 
 </body>

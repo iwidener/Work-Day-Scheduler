@@ -2,6 +2,11 @@ $(document).ready(function () {
 
     console.log("ready");
 
+     //Local Storage
+     var events = ["","","","","","","","",""]
+     events = JSON.parse(localStorage.getItem("events")) || {};
+
+
     //Current Date
 
     $("#currentDay").text(curDay);
@@ -19,15 +24,19 @@ $(document).ready(function () {
         var newRow = $("<div>");
         newRow.attr("class", "row");
 
+
         var hourColumn = $("<div>");
         hourColumn.attr("class", "col-2 hour");
-        hourColumn.text(hour + ":00 " + dateTime)
+        hourColumn.text(hour + ":00 " + dateTime);
+
 
         var descriptionColumn = $("<textarea>");
         descriptionColumn.attr("class", "col-8 description");
+        descriptionColumn.text(events[i]);
 
         var saveBtn = $("<div>");
         saveBtn.attr("class", "col-2 saveBtn");
+        saveBtn.attr("id", i);
 
         var iconBtn = $("<i>");
         iconBtn.attr("class", "fas");
@@ -71,21 +80,16 @@ $(document).ready(function () {
 
     //Local Storage
 
-    var events = JSON.parse(localStorage.getItem("events")) || {};
-
-    $.each(events, function (key, value) {
-        $("[data-hour=" + "]").children("col-8 description").val(value)
-    })
-
-    $(document).on("click", ".fas", "col-2 saveBtn", function () {
+    $(document).on("click", ".saveBtn", function (event) {
         event.preventDefault();
+        console.log(this);
+        var userInput = $(this).siblings(".description").val();
 
-        var userInput = $(this).siblings("col-8 description").val();
+        var hour = $(this).attr("id");
 
-        var hour = $(this).parent().attr("data-hour");
-
-        events[hour] = userInput
-
+        console.log("hour", hour);
+        events[hour] = userInput;
+        console.log("events", events);
         localStorage.setItem("events", JSON.stringify(events));
 
     })

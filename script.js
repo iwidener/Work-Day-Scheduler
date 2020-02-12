@@ -2,9 +2,9 @@ $(document).ready(function () {
 
     console.log("ready");
 
-     //Local Storage
-     var events = ["","","","","","","","",""]
-     events = JSON.parse(localStorage.getItem("events")) || {};
+    //Local Storage
+    var events = ["", "", "", "", "", "", "", "", ""]
+    events = JSON.parse(localStorage.getItem("events")) || {};
 
 
     //Current Date
@@ -28,6 +28,15 @@ $(document).ready(function () {
         var hourColumn = $("<div>");
         hourColumn.attr("class", "col-2 hour");
         hourColumn.text(hour + ":00 " + dateTime);
+        var currrentHour = moment().hours();
+        var thisHour = moment(hour + ":00 " + dateTime, "hh:mm A").hours();
+        if (currrentHour === thisHour) {
+            hourColumn.addClass("present")
+        }
+        else if (currrentHour > thisHour) {
+            hourColumn.addClass("past")
+        }
+        else {hourColumn.addClass("future")}
 
 
         var descriptionColumn = $("<textarea>");
@@ -46,7 +55,6 @@ $(document).ready(function () {
         newRow.append(hourColumn, descriptionColumn, saveBtn);
         saveBtn.append(iconBtn);
         blockDiv.append(newRow);
-        descriptionColumn.append(presentColor, pastColor, futureColor);
         hour++;
 
         if (hour === 12) {
@@ -57,44 +65,21 @@ $(document).ready(function () {
             hour = 1;
         }
 
-        //Assigning the colors
+        //Local Storage
 
-        var presentColor = $("<div>");
-        presentColor.attr("class", "present");
+        $(document).on("click", ".saveBtn", function (event) {
+            event.preventDefault();
+            console.log(this);
+            var userInput = $(this).siblings(".description").val();
 
-        var pastColor = $("<div>");
-        pastColor.attr("class", "past");
+            var hour = $(this).attr("id");
 
-        var futureColor = $("<div>");
-        futureColor.attr("class", "future");
-
-        if (hourColumn === m) {
-            descriptionColumn = "present";
-        } else if (hourColumn < m) {
-            descriptionColumn = "past";
-        } else {
-            descriptionColumn = "future";
+            console.log("hour", hour);
+            events[hour] = userInput;
+            console.log("events", events);
+            localStorage.setItem("events", JSON.stringify(events));
+            })
         }
-
-    }
-
-    //Local Storage
-
-    $(document).on("click", ".saveBtn", function (event) {
-        event.preventDefault();
-        console.log(this);
-        var userInput = $(this).siblings(".description").val();
-
-        var hour = $(this).attr("id");
-
-        console.log("hour", hour);
-        events[hour] = userInput;
-        console.log("events", events);
-        localStorage.setItem("events", JSON.stringify(events));
-
     })
-});
-
-
-
+    
 

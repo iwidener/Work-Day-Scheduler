@@ -4,8 +4,7 @@ $(document).ready(function () {
 
     //Local Storage
     var events = ["", "", "", "", "", "", "", "", ""]
-    events = JSON.parse(localStorage.getItem("events")) || {};
-
+    events = JSON.parse(localStorage.getItem("events")) || [];
 
     //Current Date
 
@@ -20,10 +19,8 @@ $(document).ready(function () {
 
     for (var i = 0; i < 9; i++) {
 
-
         var newRow = $("<div>");
         newRow.attr("class", "row");
-
 
         var hourColumn = $("<div>");
         hourColumn.attr("class", "col-2 hour");
@@ -36,7 +33,7 @@ $(document).ready(function () {
         else if (currrentHour > thisHour) {
             hourColumn.addClass("past")
         }
-        else {hourColumn.addClass("future")}
+        else { hourColumn.addClass("future") }
 
 
         var descriptionColumn = $("<textarea>");
@@ -50,7 +47,6 @@ $(document).ready(function () {
         var iconBtn = $("<i>");
         iconBtn.attr("class", "fas");
         iconBtn.html("<i class='fas'>&#xf0c5;</i>");
-
 
         newRow.append(hourColumn, descriptionColumn, saveBtn);
         saveBtn.append(iconBtn);
@@ -78,8 +74,6 @@ $(document).ready(function () {
             events[hour] = userInput;
             console.log("events", events);
             localStorage.setItem("events", JSON.stringify(events));
-            })
-        }
-    })
-    
-
+        })
+    }
+})

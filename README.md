@@ -11,3 +11,5 @@ Here is a description of this planner:
 * an event can be entered into a timeblock;
 * when the save button for that timeblock is clicked, an event is saved in local storage;
 * when the page is refreshed, the saved events persist.
+
+A link to the deployed project: https://iwidener.github.io/Work-Day-Scheduler/

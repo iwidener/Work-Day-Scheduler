@@ -1,11 +1,11 @@
-# Work Day Scheduler
+# Work-Day-Scheduler
 
 ### As an employee with a busy schedule <br>
 ### I want to add important events to a daily planner <br>
 ### so that I can manage my time effectively. <br>
 
 ## Table of Contents
-- [Title](#Work%20Day%20Scheduler)
+- [Title](#Work-Day-Scheduler)
 - [Description](#Description)
 - [Demo](#Demo)
 - [Technologies](#Technologies)
@@ -21,6 +21,9 @@ Here is a description of this planner:<br>
 * an event can be entered into a timeblock;<br>
 * when the save button for that timeblock is clicked, an event is saved in local storage;<br>
 * when the page is refreshed, the saved events persist.<br>
+
+## Demo
+![Alt Text](https://media.giphy.com/media/eiLGlgANaHL3z1Y8WW/giphy.gif)
 
 ## Technologies
 * jQuery
